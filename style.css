@@ -1,0 +1,76 @@
+body,html{
+    background-color:#ffe3a3;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+#heading{
+    color:#ff7f11;
+}
+
+.square{
+    width:1000px;
+    min-height:100vh;
+    background-color:#ffefca;
+    margin-top:50px;
+    margin-left: 300px;
+    border-top-left-radius: 200px;
+    border:5px solid rgb(58, 13, 13);
+    right:0;
+    bottom:0;
+}
+
+.heading{
+    font-size:60px;
+    color:#ff7f11;
+    font-weight:100px;
+}
+
+.navbar{
+    width:250px;
+    height:100vh;
+    background-color:#862fa6;
+    position:fixed;
+    top:0;
+    left:0;
+    margin: 0;
+   padding-top: 20px;
+  
+}
+
+.webname{
+    font-size:60px;
+    color:#ffd166;
+    font-family:'Brittany Signature',cursive;
+    font-weight:5px;
+
+}
+#p1,#p2,#p3{
+    width:250px;
+    height:320px;
+    background-color: white;
+    margin:20px;
+    border:10px solid rgb(58, 13, 13);
+    display:inline-block
+}
+#t1{
+   width:250px;
+   height:250px;
+}
+.navlinks a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffd166;
+    font-size:30px;
+    margin-left:20px;
+    line-height:2;
+    text-decoration: none;
+}
+.logout a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffd166;
+    font-size:30px;
+    margin-left:20px;
+    line-height:2;
+    text-decoration: none;
+    margin-bottom: 0;
+}
