@@ -25,17 +25,19 @@ body,html{
     font-weight:100px;
 }
 
-.navbar{
-    width:250vh;
-    height:80px;
-    background-color:#862fa6;
-    position:fixed;
-    top:0;
-    left:0;
-    margin:10px 10px 10px 10px;
-   padding-top: 20px;
-    box-shadow:5px 0 20px rgb(58, 13, 13);
-  
+.navbar {
+    padding: 20px;
+    width: 100%;
+    height: 80px;
+    background-color: #862fa6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 10px 10px 10px 10px;
+    padding-top: 20px;
+    box-shadow: 5px 0 20px rgb(58, 13, 13);
+    display: flex;
+    justify-content: space-between;
 }
 
 .webname{
@@ -70,10 +72,11 @@ body,html{
     margin-bottom: 0;
 }
 .top-link {
-  text-decoration: none;
-  color: #ffd166;
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 40px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
+    text-decoration: none;
+    color: #ffd166;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px;
+    transition: color 0.3s 
+ease, transform 0.3s 
+ease;}
