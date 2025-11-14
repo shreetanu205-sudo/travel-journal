@@ -9,18 +9,17 @@ body,html{
 }
 
 .square{
-    width:1300px;
-    min-height:200vh;
+    width:1200px;
+    min-height:100vh;
     background-color:#ffefca;
-    margin-top:150px;
-    margin-left: 50px;
-    border-top-left-radius: 200px;
-    border:5px solid rgb(58, 13, 13);
-    
+    margin:200px 0px 0px 100px;
+    box-shadow:0 0 20px rgb(58, 13, 13);
+    padding:50px;
+    border-radius:200px;
 }
 
 .heading{
-    font-size:60px;
+    font-size:80px;
     color:#ff7f11;
     font-weight:100px;
 }
@@ -33,7 +32,7 @@ body,html{
     position: fixed;
     top: 0;
     left: 0;
-    margin: 10px 10px 10px 10px;
+    margin: 0px 10px 10px 0px;
     padding-top: 20px;
     box-shadow: 5px 0 20px rgb(58, 13, 13);
     display: flex;
@@ -54,9 +53,11 @@ body,html{
     width:250px;
     height:320px;
     background-color: white;
-    margin:20px;
-    border:10px solid rgb(58, 13, 13);
-    display:inline-block
+    margin:50px;
+    display:inline-block;
+    box-shadow:0 0 20px rgb(58,13,13);
+    border-top-left-radius:1000px;
+    border-top-right-radius:1000px;
 }
 #t1{
    width:250px;
@@ -65,7 +66,7 @@ body,html{
 .logout a{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #ffd166;
-    font-size:30px;
+    font-size:10px;
     margin-left:20px;
     line-height:2;
     text-decoration: none;
@@ -74,9 +75,10 @@ body,html{
 .top-link {
     text-decoration: none;
     color: #ffd166;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     margin: 20px;
-    transition: color 0.3s 
-ease, transform 0.3s 
-ease;}
+    transition: color 0.3s ease, transform 0.3s ease;
+    display:inline-block;
+    margin-top:20px;
+}
