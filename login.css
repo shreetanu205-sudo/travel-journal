@@ -72,7 +72,7 @@ body,html{
 .image{
   width: 120px;
   position: absolute;
-  top: 200px;      
+  top: 140px;      
   left:50%; 
   transform: translateX(-50%); 
   border-radius: 90%; 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="exploremap.css">
+</head>
+<body>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<div class="map-container">
+
+    <h2 class="map-title">🗺️ Explore Your Travel Map</h2>
+
+    <p class="map-subtitle">All places you’ve visited will appear here!</p>
+
+    <div id="travelMap"></div>
+
+</div>
+
+<script>
+    var map = L.map('travelMap').setView([20.5937, 78.9629], 4); // Center at India
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+    }).addTo(map);
+
+    const visitedPlaces = [
+        { name: "Paris, France", lat: 48.8566, lon: 2.3522 },
+        { name: "Goa, India", lat: 15.2993, lon: 74.1240 },
+        { name: "Dubai, UAE", lat: 25.2048, lon: 55.2708 }
+    ];
+
+    visitedPlaces.forEach(place => {
+        L.marker([place.lat, place.lon])
+            .addTo(map)
+            .bindPopup(`<b>${place.name}</b>`);
+    });
+</script>
+
+</body>
+</html>

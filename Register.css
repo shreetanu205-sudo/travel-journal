@@ -7,21 +7,21 @@ body,html{
     min-height:100vh;
     background-color:#ffefca;
     margin-top:50px;
-    margin-left: 50px;
-    border-top-left-radius: 200px;
-    border:5px solid rgb(58, 13, 13);
-    
+    margin-left: 15%;
+    border-radius: 200px;
+    box-shadow:0 0 30px rgb(58, 13, 13);
+    position:absolute;
 }
 
 .loginbox{
     width:500px;
-    height:505px;
+    height:550px;
     background-color:#862fa6;
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
+    border-radius: 100px;
     margin:200px 200px 200px 200px;
     padding: 40px 0;
     text-align: center;
+    box-shadow:0 0 30px #410b54;
 }
 
 .webname{
@@ -31,10 +31,10 @@ body,html{
     display:inline-block;
     margin-top:100px;
     margin-left:20px;
-    margin-bottom: 0px;
     padding-bottom:50px;
     line-height:1;
     font-weight: lighter;
+    margin-bottom:0px;
 }
 
 .rectangle{
@@ -44,11 +44,12 @@ body,html{
     border-radius:50px;
     font-size:20px;
     color:#ffd166;
-    margin: 10px auto;
-   display: block;
+    margin:20px auto;
+    display: block;
    text-align: center;
    background-color: #862fa6;
    box-sizing: border-box;
+
 }
 .rectangle::placeholder {
   color: #ffd166; 
@@ -71,8 +72,8 @@ body,html{
 .image{
   width: 120px;
   position: absolute;
-  top: 200px;      
-  left:100%; 
+  top: 140px;      
+  left:50%; 
   transform: translateX(-50%); 
   border-radius: 90%; 
   background-color: #862fa6;

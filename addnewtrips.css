@@ -1,0 +1,59 @@
+html,body{
+    background-color:#fdeabf;
+}
+.addtrip-container {
+    text-align: center;
+    margin-top: 40px;
+    color: #a38131;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.addtrip-title {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.addtrip-card {
+    background: #6a0dad;
+    width: 40%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.addtrip-card label {
+    font-size: 18px;
+    color: #ffd166;
+    text-align: left;
+}
+
+.addtrip-card input,
+.addtrip-card textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color:#fdeabf;
+}
+
+.addtrip-btn {
+    margin-top: 15px;
+    background-color: #ffd166;
+    color: #6a0dad;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.addtrip-btn:hover {
+    transform: scale(1.05);
+}

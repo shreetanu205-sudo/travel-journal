@@ -1,0 +1,84 @@
+html,body{
+    background-color:#fdeabf;
+}
+
+.journals-container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    color:#a38131;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 40px;
+}
+
+.journals-title {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.journal-card {
+    background: #6a0dad;
+    padding: 25px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    text-align: left;
+    color: #ffd166;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+.journal-card h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.location, .date {
+    font-size: 16px;
+    color: wheat;
+    margin: 2px 0;
+}
+
+.desc {
+    font-size: 15px;
+    margin: 12px 0 20px;
+    color: #ffeab6;
+}
+
+.journal-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.open-btn {
+    background: #ffd166;
+    color: #6a0dad;
+    text-decoration: none;
+    padding: 10px 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.open-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Voice note upload button */
+.voice-btn {
+    background: #9f4ce1;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffd166;
+    transition: 0.3s;
+}
+
+.voice-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Hide the actual file input */
+.voice-btn input {
+    display: none;
+}
