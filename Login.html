@@ -12,10 +12,62 @@
         <div class="loginbox" align="center">
              <img class="image" src="NoDP.png">
             <h1 class="webname">Voyago</h1>
-            <input type="text" placeholder="Phone no, Email Id, Username" class="rectangle">
-            <input type="password" placeholder="Password" class="rectangle">
-            <button class="loginbutton">Log In</button>
+           <input type="text" id="loginUser" placeholder="Phone no, Email Id, Username" class="rectangle">
+<input type="password" id="loginPass" placeholder="Password" class="rectangle">
+<button class="loginbutton" onclick="validateLogin()">Log In</button>
+<span class="tick" id="userTick">✔</span>
+<span class="tick" id="passTick">✔</span>
+
         </div>
     </div>
 </body>
+<script>
+function validateLogin() {
+    let loginUser = document.getElementById("loginUser");
+    let loginPass = document.getElementById("loginPass");
+
+    let userTick = document.getElementById("userTick");
+    let passTick = document.getElementById("passTick");
+
+    // Get saved user data from registration page
+    let savedUser = localStorage.getItem("voyagoUser");
+    savedUser = savedUser ? JSON.parse(savedUser) : null;
+
+    if (!savedUser) {
+        alert("No account found. Please register first.");
+        return;
+    }
+
+    let valid = true;
+
+    // Validate username/email/phone
+    if (loginUser.value.trim() === savedUser.username ||
+        loginUser.value.trim() === savedUser.email ||
+        loginUser.value.trim() === savedUser.phone) 
+    {
+        userTick.style.display = "inline";
+    } else {
+        userTick.style.display = "none";
+        loginUser.classList.add("shake");
+        setTimeout(() => loginUser.classList.remove("shake"), 300);
+        valid = false;
+    }
+
+    // Validate password
+    if (loginPass.value.trim() === savedUser.password) {
+        passTick.style.display = "inline";
+    } else {
+        passTick.style.display = "none";
+        loginPass.classList.add("shake");
+        setTimeout(() => loginPass.classList.remove("shake"), 300);
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Login successful!");
+        window.location.href = "home.html"; 
+    }
+}
+</script>
+
 </html>
