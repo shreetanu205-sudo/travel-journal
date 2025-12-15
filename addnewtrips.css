@@ -1,6 +1,7 @@
 html,body{
     background-color:#fdeabf;
 }
+
 .addtrip-container {
     text-align: center;
     margin-top: 40px;
@@ -41,19 +42,22 @@ html,body{
     background-color:#fdeabf;
 }
 
+.addtrip-card button {
+    background:#ffd166;
+    color:#6a0dad;
+    border:none;
+    padding:8px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
 .addtrip-btn {
     margin-top: 15px;
     background-color: #ffd166;
     color: #6a0dad;
-    border: none;
     padding: 12px;
     font-size: 18px;
     border-radius: 12px;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.addtrip-btn:hover {
-    transform: scale(1.05);
 }

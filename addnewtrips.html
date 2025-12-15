@@ -1,37 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="addnewtrips.css">
+<meta charset="UTF-8">
+<title>Add New Trip</title>
+<link rel="stylesheet" href="addnewtrips.css">
 </head>
 <body>
-    <div class="addtrip-container">
 
+<div class="addtrip-container">
     <h2 class="addtrip-title">✈️ Add New Trip</h2>
 
     <div class="addtrip-card">
-
         <label>Trip Title</label>
-        <input type="text" placeholder="Enter trip title">
+        <input type="text" id="title">
 
         <label>Location</label>
-        <input type="text" placeholder="Enter location">
+        <input type="text" id="location">
 
-        <label>Date of Travel</label>
-        <input type="date">
+        <label>Date Of Travel</label>
+        <input type="date" id="date">
 
-        <label>Upload Photos</label>
-        <input type="file" accept="image/*" multiple>
+        <label>Your Travel Story</label>
+        <textarea id="story" rows="5"></textarea>
 
-        <label>Travel Story / Notes</label>
-        <textarea rows="5" placeholder="Write about your experience..."></textarea>
+        <!-- 🎤 VOICE NOTE -->
+        <label>Voice Note</label>
+        <button type="button" onclick="startRecording()">🎙 Start Recording</button>
+        <button type="button" onclick="stopRecording()">⏹ Stop</button>
+        <audio id="audioPreview" controls style="display:none;"></audio>
 
-        <button class="addtrip-btn">Save Trip</button>
-
+        <button class="addtrip-btn" onclick="saveTrip()">Save Trip</button>
     </div>
 </div>
+
+<script>
+let mediaRecorder;
+let audioChunks = [];
+let audioBase64 = "";
+
+function startRecording() {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+    });
+}
+
+function stopRecording() {
+    mediaRecorder.stop();
+    mediaRecorder.onstop = () => {
+        const blob = new Blob(audioChunks, { type: "audio/webm" });
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            audioBase64 = reader.result;
+            const audio = document.getElementById("audioPreview");
+            audio.src = audioBase64;
+            audio.style.display = "block";
+        };
+        reader.readAsDataURL(blob);
+    };
+}
+
+function saveTrip() {
+    const title = document.getElementById("title").value;
+    const location = document.getElementById("location").value;
+    const date = document.getElementById("date").value;
+    const story = document.getElementById("story").value;
+
+    if (!title || !location || !date || !story) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const trip = {
+        title,
+        location,
+        date,
+        story,
+        voiceNote: audioBase64   // ✅ STORED
+    };
+
+    let trips = JSON.parse(localStorage.getItem("trips")) || [];
+    trips.push(trip);
+    localStorage.setItem("trips", JSON.stringify(trips));
+
+    window.location.href = "Myjournal.html";
+}
+</script>
 
 </body>
 </html>

@@ -1,45 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Journals</title>
-    <link rel="stylesheet" href="Myjournal.css">
+<meta charset="UTF-8">
+<title>My Travel Journals</title>
+<link rel="stylesheet" href="Myjournal.css">
 </head>
 <body>
 
 <div class="journals-container">
     <h2 class="journals-title">📓 My Travel Journals</h2>
-
-    <div class="journal-card" data-lat="48.8566" data-lon="2.3522">
-        <h3>Paris Adventure</h3>
-        <p class="location">📍 Paris, France</p>
-        <p class="date">🗓️ 12 Aug 2024</p>
-        <p class="desc">Visited the Eiffel Tower, Louvre Museum and enjoyed night walks.</p>
-    </div>
-
-    <div class="journal-card" data-lat="15.2993" data-lon="74.1240">
-        <h3>Beach Escape</h3>
-        <p class="location">📍 Goa, India</p>
-        <p class="date">🗓️ 05 Jan 2024</p>
-        <p class="desc">Relaxed on the beach, enjoyed seafood and nightlife.</p>
-    </div>
+    <div id="journalList"></div>
 </div>
 
-<script>
-    const journals = document.querySelectorAll(".journal-card");
-    let locations = [];
-
-    journals.forEach(journal => {
-        const place = journal.querySelector(".location").innerText.replace("📍 ", "");
-        const lat = journal.dataset.lat;
-        const lon = journal.dataset.lon;
-
-        locations.push({ name: place, lat, lon });
-    });
-
-    localStorage.setItem("voyagoLocations", JSON.stringify(locations));
-</script>
-
+<script src="Myjournal.js"></script>
 </body>
 </html>
