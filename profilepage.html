@@ -1,50 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="profilepage.css">
+<meta charset="UTF-8">
+<title>Your Profile</title>
+<link rel="stylesheet" href="profilepage.css">
 </head>
 <body>
+
 <div class="profile-container">
+<h2 class="profile-title">👤 Your Profile</h2>
 
-    <h2 class="profile-title">👤 Your Profile</h2>
+<div class="profile-card">
 
-    <div class="profile-card">
+  <div class="profile-top">
+    <img src="profile.avif" class="profile-pic">
+    <h3 id="fullName"></h3>
+    <p id="username"></p>
+  </div>
 
-        <div class="profile-top">
-            <img src="profile.avif" class="profile-pic" alt="Profile Picture">
-            <h3 class="profile-name">Aria Solanki</h3>
-            <p class="profile-tag">@voyager</p>
-        </div>
+  <div class="profile-stats">
+    <div class="stat-box"><h4>0</h4><p>Trips</p></div>
+    <div class="stat-box"><h4>0</h4><p>Countries</p></div>
+    <div class="stat-box"><h4>0</h4><p>Voice Notes</p></div>
+  </div>
 
-        <div class="profile-stats">
-            <div class="stat-box">
-                <h4>12</h4>
-                <p>Trips</p>
-            </div>
-            <div class="stat-box">
-                <h4>5</h4>
-                <p>Countries</p>
-            </div>
-            <div class="stat-box">
-                <h4>8</h4>
-                <p>Voice Notes</p>
-            </div>
-        </div>
+  <div class="profile-info">
+    <p><b>Login ID:</b> <span id="loginId"></span></p>
+    <p><b>Member Since:</b> 2024</p>
+    <p><b>About:</b> <span id="about"></span></p>
+  </div>
 
-        <div class="profile-info">
-            <p><b>Email:</b>ariasolanki@example.com</p>
-            <p><b>Member Since:</b> 2024</p>
-            <p><b>About:</b> Passionate traveler capturing memories through stories, photos, and audio notes.</p>
-        </div>
-
-        <a href="editprofile.html"><button class="edit-btn">Edit Profile</button></a>
-    </div>
+  <a href="editprofile.html">
+    <button class="edit-btn">Edit Profile</button>
+  </a>
 
 </div>
+</div>
 
-
+<script src="profilepage.js"></script>
 </body>
 </html>

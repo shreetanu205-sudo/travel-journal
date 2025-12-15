@@ -1,63 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="editprofile.css">
+<meta charset="UTF-8">
+<title>Edit Profile</title>
+<link rel="stylesheet" href="editprofile.css">
 </head>
-<script>
-    const photoInput = document.getElementById("photoInput");
-    const profilePreview = document.getElementById("profilePreview");
-
-    photoInput.addEventListener("change", function () {
-        const file = this.files[0];
-        if (file) {
-            profilePreview.src = URL.createObjectURL(file);
-        }
-    });
-</script>
-
 <body>
-    <div class="editprofile-container">
 
-    <h2 class="editprofile-title">🖊️ Edit Profile</h2>
+<div class="profile-container">
+<h2 class="profile-title">✏️ Edit Profile</h2>
 
-    <div class="editprofile-card">
+<div class="profile-card">
+  <label>Full Name</label>
+  <input id="fullname">
 
-        <div class="profile-photo-section">
-    <img id="profilePreview" src="profile.avif" class="editprofile-pic">
+  <label>Username</label>
+  <input id="username">
 
-    <input type="file" id="photoInput" accept="image/*" style="display:none">
+  <label>About</label>
+  <textarea id="about"></textarea>
 
-    <button class="change-photo-btn" onclick="document.getElementById('photoInput').click();">
-        Change Photo
-    </button>
+  <button class="edit-btn" onclick="saveProfile()">Save</button>
+</div>
 </div>
 
-
-        <label>Full Name</label>
-        <input type="text" value="Aria Solanki">
-
-        <label>Username</label>
-        <input type="text" value="voyager-aria">
-
-        <label>Email</label>
-        <input type="email" value="aria.solanki@gmail.com">
-
-        <label>Location</label>
-        <input type="text" value="Mumbai, India">
-
-        <label>Bio</label>
-        <textarea rows="4" placeholder="Write something about yourself...">Travel lover ✈️ | Photographer 📸 | Food Explorer 🍽️</textarea>
-
-        <label>Change Password</label>
-        <input type="password" placeholder="New Password">
-
-        <button class="save-btn">Save Changes</button>
-    </div>
-
-</div>
-
+<script src="editprofile.js"></script>
 </body>
 </html>

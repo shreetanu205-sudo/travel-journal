@@ -2,74 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registeration new user</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="Register.css">
     <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
 </head>
 <body>
-    <div class="square" align="center">
-        <div class="loginbox" align="center">
-             <img class="image" src="NoDP.png">
-            <h1 class="webname">Voyago</h1>
-          <input type="text" id="contact" placeholder="Mobile no. or Email" class="rectangle">
-<input type="text" id="fullname" placeholder="Full name" class="rectangle">
-<input type="text" id="username" placeholder="Username" class="rectangle">
-<input type="password" id="password" placeholder="Password" class="rectangle">
-<button class="loginbutton" onclick="registerUser()">Register</button>
 
-        </div>
+<div class="square" align="center">
+    <div class="loginbox">
+        <img class="image" src="NoDP.png">
+        <h1 class="webname">Voyago</h1>
+
+        <input type="text" id="contact" placeholder="Mobile no. or Email" class="rectangle">
+        <input type="text" id="fullname" placeholder="Full name" class="rectangle">
+        <input type="text" id="username" placeholder="Username" class="rectangle">
+        <input type="password" id="password" placeholder="Password" class="rectangle">
+
+        <button class="loginbutton" onclick="registerUser()">Register</button>
     </div>
-    <script>
+</div>
+
+<script>
 function registerUser() {
-    let contact = document.getElementById("contact");
-    let fullname = document.getElementById("fullname");
-    let username = document.getElementById("username");
-    let password = document.getElementById("password");
+    const contact = document.getElementById("contact").value.trim();
+    const fullname = document.getElementById("fullname").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    // Simple validation
-    if (contact.value.trim() === "") {
-        contact.classList.add("shake");
-        setTimeout(() => contact.classList.remove("shake"), 300);
-        alert("Please enter a mobile no. or email.");
+    if (!contact || !fullname || !username || !password) {
+        alert("Please fill all fields");
         return;
     }
 
-    if (fullname.value.trim() === "") {
-        fullname.classList.add("shake");
-        setTimeout(() => fullname.classList.remove("shake"), 300);
-        alert("Please enter your full name.");
+    if (username.length < 3) {
+        alert("Username must be at least 3 characters");
         return;
     }
 
-    if (username.value.trim().length < 3) {
-        username.classList.add("shake");
-        setTimeout(() => username.classList.remove("shake"), 300);
-        alert("Username should be at least 3 characters.");
+    if (password.length < 4) {
+        alert("Password must be at least 4 characters");
         return;
     }
 
-    if (password.value.trim().length < 4) {
-        password.classList.add("shake");
-        setTimeout(() => password.classList.remove("shake"), 300);
-        alert("Password should contain at least 4 characters.");
-        return;
-    }
-
-    // Save user data inside localStorage
-    let userData = {
-        contact: contact.value.trim(),
-        fullname: fullname.value.trim(),
-        username: username.value.trim(),
-        password: password.value.trim()
+    const userData = {
+        contact: contact,      // email OR phone
+        fullname: fullname,
+        username: username,
+        password: password,
+        about: "",
+        memberSince: new Date().getFullYear()
     };
 
     localStorage.setItem("voyagoUser", JSON.stringify(userData));
 
     alert("Registration successful!");
-
-    // Redirect to login page
-    window.location.href = "Login.html";  
+    window.location.href = "login.html";   // ✅ FIXED REDIRECT
 }
 </script>
 
