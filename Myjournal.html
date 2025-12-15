@@ -3,47 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Journals</title>
     <link rel="stylesheet" href="Myjournal.css">
 </head>
 <body>
-    <div class="journals-container">
 
+<div class="journals-container">
     <h2 class="journals-title">📓 My Travel Journals</h2>
 
-    <div class="journal-card">
+    <div class="journal-card" data-lat="48.8566" data-lon="2.3522">
         <h3>Paris Adventure</h3>
         <p class="location">📍 Paris, France</p>
         <p class="date">🗓️ 12 Aug 2024</p>
-
         <p class="desc">Visited the Eiffel Tower, Louvre Museum and enjoyed night walks.</p>
-
-        <div class="journal-actions">
-            <a href="#" class="open-btn">Open</a>
-            <label class="voice-btn">
-                🎤 Add Voice Note
-                <input type="file" accept="audio/*" capture="microphone">
-            </label>
-        </div>
     </div>
 
-    <div class="journal-card">
+    <div class="journal-card" data-lat="15.2993" data-lon="74.1240">
         <h3>Beach Escape</h3>
         <p class="location">📍 Goa, India</p>
         <p class="date">🗓️ 05 Jan 2024</p>
-
         <p class="desc">Relaxed on the beach, enjoyed seafood and nightlife.</p>
-
-        <div class="journal-actions">
-            <a href="#" class="open-btn">Open</a>
-            <label class="voice-btn">
-                🎤 Add Voice Note
-                <input type="file" accept="audio/*" capture="microphone">
-            </label>
-        </div>
     </div>
-
 </div>
+
+<script>
+    const journals = document.querySelectorAll(".journal-card");
+    let locations = [];
+
+    journals.forEach(journal => {
+        const place = journal.querySelector(".location").innerText.replace("📍 ", "");
+        const lat = journal.dataset.lat;
+        const lon = journal.dataset.lon;
+
+        locations.push({ name: place, lat, lon });
+    });
+
+    localStorage.setItem("voyagoLocations", JSON.stringify(locations));
+</script>
 
 </body>
 </html>

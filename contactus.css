@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #ffe3a3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Headings */
+.page-title {
+    color: #862fa6;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #6a4b2e;
+    margin-bottom: 20px;
+}
+
+/* Main Card */
+.contact-card {
+    background: linear-gradient(135deg, #862fa6, #a94fc3);
+    width: 600px;
+    padding: 30px 25px;
+    border-radius: 22px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* Brand */
+.brand-name {
+    color: #ffd166;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: cursive;
+}
+
+/* Inputs */
+.contact-card input,
+.contact-card textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 14px;
+    border-radius: 20px;
+    border: 2px solid #ffd166;
+    background: transparent;
+    color: #fff;
+    outline: none;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #ffe3a3;
+}
+
+/* Button */
+.contact-card button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffd166;
+    color: #6a2c70;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-card button:hover {
+    background-color: #ffbe3d;
+}
+
+/* Saved Messages */
+.saved-messages {
+    margin-top: 20px;
+    background: rgba(255, 227, 163, 0.15);
+    padding: 12px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.saved-messages h3 {
+    color: #ffd166;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.message-box {
+    background-color: #ffe3a3;
+    color: #6a2c70;
+    padding: 8px 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    position: relative;
+}
+
+/* Delete Button */
+.delete-btn {
+    margin-top: 6px;
+    background-color: #862fa6;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.delete-btn:hover {
+    background-color: #6a1f82;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | Voyago</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <h1 class="page-title">📖 About Us</h1>
+    <p class="page-subtitle">Know more about Voyago</p>
+
+    <div class="about-card">
+        <h2 class="brand-name">Voyago</h2>
+
+        <p class="about-text">
+            Voyago is a personal travel journal platform designed to help users
+            capture their journeys, memories, and experiences in one beautiful place.
+            From writing travel stories to exploring visited locations on a map,
+            Voyago turns every trip into a lasting memory.
+        </p>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="count" data-target="35">0</span>
+                <p>Trips Logged</p>
+            </div>
+            <div class="stat-box">
+                <span class="count" data-target="15">0</span>
+                <p>Destinations</p>
+            </div>
+            <div class="stat-box">
+                <span class="count" data-target="56">0</span>
+                <p>Memories Saved</p>
+            </div>
+        </div>
+
+        <p class="about-footer">
+            ✨ Travel. Write. Remember.
+        </p>
+    </div>
+
+    <!-- JavaScript inside HTML -->
+    <script>
+        const counters = document.querySelectorAll('.count');
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const current = +counter.innerText;
+                const increment = Math.ceil(target / 50);
+
+                if (current < target) {
+                    counter.innerText = current + increment;
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    </script>
+
+</body>
+</html>
