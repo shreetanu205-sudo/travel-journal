@@ -1,95 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Add New Trip</title>
-<link rel="stylesheet" href="addnewtrips.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Write Your Journey | Voyago</title>
+    <link rel="stylesheet" href="addnewtrips.css" />
+  </head>
+  <body>
+    <!-- INTRO -->
+    <section class="intro">
+      <h1>Write This Before You Forget It</h1>
+      <p>No filters. No grammar rules. Just you, your memory, and this page.</p>
+    </section>
 
-<div class="addtrip-container">
-    <h2 class="addtrip-title">✈️ Add New Trip</h2>
+    <!-- JOURNAL -->
+    <main class="journal-wrapper">
+      <div class="journal-card">
+        <div class="prompt">✍️ <span>Give this memory a name</span></div>
+        <input type="text" id="title" placeholder="A rainy evening in Paris…" />
 
-    <div class="addtrip-card">
-        <label>Trip Title</label>
-        <input type="text" id="title">
+        <div class="prompt">📍 <span>Where were you?</span></div>
+        <input
+          type="text"
+          id="location"
+          placeholder="City, country, or just a place that mattered"
+        />
 
-        <label>Location</label>
-        <input type="text" id="location">
+        <div class="prompt">🗓️ <span>When did this happen?</span></div>
+        <input type="date" id="date" />
 
-        <label>Date Of Travel</label>
-        <input type="date" id="date">
+        <div class="prompt big">
+          📖 <span>Now tell the story</span>
+          <small>
+            Start anywhere. What surprised you? What did you feel? What do you
+            still remember clearly?
+          </small>
+        </div>
 
-        <label>Your Travel Story</label>
-        <textarea id="story" rows="5"></textarea>
+        <textarea
+          id="story"
+          rows="10"
+          placeholder="I still remember the moment when…"
+        ></textarea>
 
-        <!-- 🎤 VOICE NOTE -->
-        <label>Voice Note</label>
-        <button type="button" onclick="startRecording()">🎙 Start Recording</button>
-        <button type="button" onclick="stopRecording()">⏹ Stop</button>
-        <audio id="audioPreview" controls style="display:none;"></audio>
+        <!-- VOICE -->
+        <div class="voice-block">
+          <p>🎙️ Too much to type? Say it out loud.</p>
+          <div class="voice-buttons">
+            <button type="button" onclick="startRecording()">
+              Start Recording
+            </button>
+            <button type="button" onclick="stopRecording()">Stop</button>
+          </div>
+          <audio id="audioPreview" controls></audio>
+        </div>
 
-        <button class="addtrip-btn" onclick="saveTrip()">Save Trip</button>
-    </div>
-</div>
+        <button class="save-btn" onclick="saveTrip()">Save This Memory</button>
+      </div>
+    </main>
 
-<script>
-let mediaRecorder;
-let audioChunks = [];
-let audioBase64 = "";
+    <script>
+      let mediaRecorder;
+      let audioChunks = [];
+      let audioBase64 = "";
 
-function startRecording() {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
-        mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
-        audioChunks = [];
+      function startRecording() {
+        navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.start();
+          audioChunks = [];
+          mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+        });
+      }
 
-        mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-    });
-}
-
-function stopRecording() {
-    mediaRecorder.stop();
-    mediaRecorder.onstop = () => {
-        const blob = new Blob(audioChunks, { type: "audio/webm" });
-        const reader = new FileReader();
-
-        reader.onloadend = () => {
+      function stopRecording() {
+        if (!mediaRecorder) return;
+        mediaRecorder.stop();
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(audioChunks, { type: "audio/webm" });
+          const reader = new FileReader();
+          reader.onloadend = () => {
             audioBase64 = reader.result;
             const audio = document.getElementById("audioPreview");
             audio.src = audioBase64;
             audio.style.display = "block";
+          };
+          reader.readAsDataURL(blob);
         };
-        reader.readAsDataURL(blob);
-    };
-}
+      }
 
-function saveTrip() {
-    const title = document.getElementById("title").value;
-    const location = document.getElementById("location").value;
-    const date = document.getElementById("date").value;
-    const story = document.getElementById("story").value;
+      function saveTrip() {
+        const title = document.getElementById("title").value;
+        const location = document.getElementById("location").value;
+        const date = document.getElementById("date").value;
+        const story = document.getElementById("story").value;
 
-    if (!title || !location || !date || !story) {
-        alert("Please fill all fields");
-        return;
-    }
+        if (!title || !location || !date || !story) {
+          alert("Don’t rush. Fill it like a memory, not a form.");
+          return;
+        }
 
-    const trip = {
-        title,
-        location,
-        date,
-        story,
-        voiceNote: audioBase64   // ✅ STORED
-    };
+        const trip = {
+          title,
+          location,
+          date,
+          story,
+          voiceNote: audioBase64,
+        };
 
-    let trips = JSON.parse(localStorage.getItem("trips")) || [];
-    trips.push(trip);
-    localStorage.setItem("trips", JSON.stringify(trips));
+        let trips = JSON.parse(localStorage.getItem("trips")) || [];
+        trips.push(trip);
+        localStorage.setItem("trips", JSON.stringify(trips));
 
-    window.location.href = "Myjournal.html";
-}
-</script>
-
-</body>
+        window.location.href = "Myjournal.html";
+      }
+    </script>
+  </body>
 </html>

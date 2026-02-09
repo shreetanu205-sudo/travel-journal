@@ -1,63 +1,140 @@
-html,body{
-    background-color:#fdeabf;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.addtrip-container {
-    text-align: center;
-    margin-top: 40px;
-    color: #a38131;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+html,
+body {
+  min-height: 100%;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, #fdeabf, #f6d488);
+  color: #3a2a00;
 }
 
-.addtrip-title {
-    font-size: 38px;
-    margin-bottom: 20px;
+/* INTRO */
+.intro {
+  text-align: center;
+  padding: 110px 20px 60px;
 }
 
-.addtrip-card {
-    background: #6a0dad;
-    width: 40%;
-    margin: auto;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.intro h1 {
+  font-size: 58px;
+  color: #7b2727;
+  margin-bottom: 12px;
 }
 
-.addtrip-card label {
-    font-size: 18px;
-    color: #ffd166;
-    text-align: left;
+.intro p {
+  font-size: 22px;
+  color: #7d5c1f;
+  max-width: 600px;
+  margin: auto;
 }
 
-.addtrip-card input,
-.addtrip-card textarea {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    background-color:#fdeabf;
+/* JOURNAL */
+.journal-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 120px;
 }
 
-.addtrip-card button {
-    background:#ffd166;
-    color:#6a0dad;
-    border:none;
-    padding:8px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
+.journal-card {
+  width: 560px;
+  background: #fff7e0;
+  padding: 45px 40px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
-.addtrip-btn {
-    margin-top: 15px;
-    background-color: #ffd166;
-    color: #6a0dad;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 12px;
-    cursor: pointer;
+/* PROMPTS */
+.prompt {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6a3a00;
+}
+
+.prompt span {
+  margin-left: 6px;
+}
+
+.prompt.big {
+  margin-top: 10px;
+}
+
+.prompt small {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 6px;
+  color: #8a6b2c;
+}
+
+/* INPUTS */
+input,
+textarea {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: #fdeabf;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+
+/* VOICE */
+.voice-block {
+  background: #f4ddb2;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.voice-block p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.voice-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.voice-buttons button {
+  flex: 1;
+  background: #7a1bbd;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#audioPreview {
+  display: none;
+  margin-top: 10px;
+}
+
+/* SAVE */
+.save-btn {
+  margin-top: 20px;
+  background: #7b2727;
+  color: #fff7e0;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.save-btn:hover {
+  transform: scale(1.04);
 }

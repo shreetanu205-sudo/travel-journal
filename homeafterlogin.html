@@ -1,47 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="homeafterlogin.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyago Dashboard</title>
+    <link rel="stylesheet" href="homeafterlogin.css" />
+  </head>
+  <body>
+    <!-- HERO HEADER -->
+    <section class="hero">
+      <h1>Welcome to Voyago</h1>
+      <p>Your personal travel journal, memories & maps in one place</p>
+    </section>
+
+    <!-- DASHBOARD -->
     <div class="dashboard-container">
+      <div class="card-grid">
+        <div class="dash-card">
+          <div class="icon">✈️</div>
+          <h3>Add New Trip</h3>
+          <p>Create a new journal entry with photos, notes, and memories.</p>
+          <a href="addnewtrips.html" class="card-btn">Create</a>
+        </div>
 
-    <div class="dashboard-header">
-        <h2>Welcome to Voyago!</h2>
-        <p>Your personal travel journal</p>
+        <div class="dash-card">
+          <div class="icon">📓</div>
+          <h3>My Journals</h3>
+          <p>Read, edit, and relive all the trips you’ve written about.</p>
+          <a href="Myjournal.html" class="card-btn">Open</a>
+        </div>
+
+        <div class="dash-card">
+          <div class="icon">🗺️</div>
+          <h3>Explore Map</h3>
+          <p>See all the places you’ve visited on an interactive map.</p>
+          <a href="exploremaps.html" class="card-btn">View</a>
+        </div>
+
+        <div class="dash-card">
+          <div class="icon">👤</div>
+          <h3>Profile</h3>
+          <p>Update your personal details and travel preferences.</p>
+          <a href="profilepage.html" class="card-btn">Go</a>
+        </div>
+      </div>
     </div>
-
-    <div class="card-grid">
-
-        <div class="dash-card">
-            <h3>✈️ Add New Trip</h3>
-            <p>Create a new journal entry with photos & memories.</p>
-            <a href="addnewtrips.html" class="card-btn">Create</a>
-        </div>
-
-        <div class="dash-card">
-            <h3>📓 My Journals</h3>
-            <p>View all the trips you’ve written about.</p>
-            <a href="Myjournal.html" class="card-btn">Open</a>
-        </div>
-
-        <div class="dash-card">
-            <h3>🗺️ Explore Map</h3>
-            <p>See all your visited places on an interactive map.</p>
-            <a href="exploremaps.html" class="card-btn">View</a>
-        </div>
-
-        <div class="dash-card">
-            <h3>👤 Profile</h3>
-            <p>Update your details & travel preferences.</p>
-            <a href="profilepage.html" class="card-btn">Go</a>
-        </div>
-
-    </div>
-</div>
-
-</body>
+  </body>
 </html>
