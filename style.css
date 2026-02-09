@@ -1,84 +1,124 @@
-body,html{
-    background-color:#ffe3a3;
-    height:100%;
-    margin:0;
-    padding:0;
-}
-#heading{
-    color:#ff7f11;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.square{
-    width:1200px;
-    min-height:100vh;
-    background-color:#ffefca;
-    margin:200px 0px 0px 100px;
-    box-shadow:0 0 20px rgb(58, 13, 13);
-    padding:50px;
-    border-radius:200px;
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, #ffe3a3, #ffd18b);
+  color: #2c2c2c;
 }
 
-.heading{
-    font-size:80px;
-    color:#ff7f11;
-    font-weight:100px;
-}
-
+/* NAVBAR */
 .navbar {
-    padding: 20px;
-    width: 100%;
-    height: 80px;
-    background-color: #862fa6;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0px 10px 10px 0px;
-    padding-top: 20px;
-    box-shadow: 5px 0 20px rgb(58, 13, 13);
-    display: flex;
-    justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  background: #862fa6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  z-index: 1000;
 }
 
-.webname{
-    font-size:60px;
-    color:#ffd166;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    display:inline-block;
-    margin-top:0px;
-    margin-left:20px;
-    padding-bottom:50px;
-    line-height:1;
+.webname {
+  font-size: 56px;
+  color: #ffd166;
 }
-#p1,#p2,#p3{
-    width:250px;
-    height:320px;
-    background-color: white;
-    margin:50px;
-    display:inline-block;
-    box-shadow:0 0 20px rgb(58,13,13);
-    border-top-left-radius:1000px;
-    border-top-right-radius:1000px;
-}
-#t1{
-   width:250px;
-   height:250px;
-}
-.logout a{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #ffd166;
-    font-size:10px;
-    margin-left:20px;
-    line-height:2;
-    text-decoration: none;
-    margin-bottom: 0;
-}
+
 .top-link {
-    text-decoration: none;
-    color: #ffd166;
-    font-size: 25px;
-    font-weight: bold;
-    margin: 20px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display:inline-block;
-    margin-top:20px;
+  margin-left: 30px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd166;
+  transition: 0.3s;
+}
+
+.top-link:hover {
+  color: #ffffff;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee")
+      center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 90px;
+}
+
+.hero h1 {
+  font-size: 80px;
+  color: #ffd166;
+}
+
+.hero p {
+  font-size: 26px;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+/* CITIES */
+.cities {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* CARD */
+.card {
+  background: #ffffff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transition: 0.4s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 28px;
+  margin: 20px 0 10px;
+  color: #862fa6;
+}
+
+.card p {
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.card a {
+  display: inline-block;
+  margin: 20px 0 30px;
+  font-weight: bold;
+  color: #ff7f11;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
 }
