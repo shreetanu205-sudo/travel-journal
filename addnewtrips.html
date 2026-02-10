@@ -2,117 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Write Your Journey | Voyago</title>
+    <title>Add New Trip | Voyago</title>
     <link rel="stylesheet" href="addnewtrips.css" />
   </head>
   <body>
-    <!-- INTRO -->
-    <section class="intro">
-      <h1>Write This Before You Forget It</h1>
-      <p>No filters. No grammar rules. Just you, your memory, and this page.</p>
-    </section>
+    <header class="add-header">
+      <h1>✈️ Add New Trip</h1>
+      <p>Write freely. This space is yours.</p>
+    </header>
 
-    <!-- JOURNAL -->
-    <main class="journal-wrapper">
-      <div class="journal-card">
-        <div class="prompt">✍️ <span>Give this memory a name</span></div>
-        <input type="text" id="title" placeholder="A rainy evening in Paris…" />
-
-        <div class="prompt">📍 <span>Where were you?</span></div>
-        <input
-          type="text"
-          id="location"
-          placeholder="City, country, or just a place that mattered"
-        />
-
-        <div class="prompt">🗓️ <span>When did this happen?</span></div>
-        <input type="date" id="date" />
-
-        <div class="prompt big">
-          📖 <span>Now tell the story</span>
-          <small>
-            Start anywhere. What surprised you? What did you feel? What do you
-            still remember clearly?
-          </small>
+    <main class="add-container">
+      <div class="add-card">
+        <div class="field">
+          <label>Trip Title</label>
+          <input id="title" placeholder="Give this memory a name" />
         </div>
 
-        <textarea
-          id="story"
-          rows="10"
-          placeholder="I still remember the moment when…"
-        ></textarea>
-
-        <!-- VOICE -->
-        <div class="voice-block">
-          <p>🎙️ Too much to type? Say it out loud.</p>
-          <div class="voice-buttons">
-            <button type="button" onclick="startRecording()">
-              Start Recording
-            </button>
-            <button type="button" onclick="stopRecording()">Stop</button>
-          </div>
-          <audio id="audioPreview" controls></audio>
+        <div class="field">
+          <label>Location</label>
+          <input id="location" placeholder="Where were you?" />
         </div>
 
-        <button class="save-btn" onclick="saveTrip()">Save This Memory</button>
+        <div class="field">
+          <label>Date</label>
+          <input type="date" id="date" />
+        </div>
+
+        <div class="field">
+          <label>Your Story</label>
+          <textarea
+            id="story"
+            rows="10"
+            placeholder="Start anywhere. One sentence is enough to begin."
+          ></textarea>
+        </div>
+
+        <button class="save-btn" onclick="saveTrip()">Save Trip</button>
       </div>
     </main>
 
-    <script>
-      let mediaRecorder;
-      let audioChunks = [];
-      let audioBase64 = "";
-
-      function startRecording() {
-        navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-          mediaRecorder = new MediaRecorder(stream);
-          mediaRecorder.start();
-          audioChunks = [];
-          mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
-        });
-      }
-
-      function stopRecording() {
-        if (!mediaRecorder) return;
-        mediaRecorder.stop();
-        mediaRecorder.onstop = () => {
-          const blob = new Blob(audioChunks, { type: "audio/webm" });
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            audioBase64 = reader.result;
-            const audio = document.getElementById("audioPreview");
-            audio.src = audioBase64;
-            audio.style.display = "block";
-          };
-          reader.readAsDataURL(blob);
-        };
-      }
-
-      function saveTrip() {
-        const title = document.getElementById("title").value;
-        const location = document.getElementById("location").value;
-        const date = document.getElementById("date").value;
-        const story = document.getElementById("story").value;
-
-        if (!title || !location || !date || !story) {
-          alert("Don’t rush. Fill it like a memory, not a form.");
-          return;
-        }
-
-        const trip = {
-          title,
-          location,
-          date,
-          story,
-          voiceNote: audioBase64,
-        };
-
-        let trips = JSON.parse(localStorage.getItem("trips")) || [];
-        trips.push(trip);
-        localStorage.setItem("trips", JSON.stringify(trips));
-
-        window.location.href = "Myjournal.html";
-      }
-    </script>
+    <script src="addnewtrips.js"></script>
   </body>
 </html>

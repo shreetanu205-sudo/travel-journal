@@ -1,84 +1,130 @@
-html,body{
-    background-color:#fdeabf;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html,
+body {
+  min-height: 100%;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, #fdeabf, #f6d488);
+  color: #3a2a00;
+}
+
+/* HEADER */
+.journal-header {
+  text-align: center;
+  padding: 110px 20px 40px;
+}
+
+.journal-header h1 {
+  font-size: 56px;
+  color: #7b2727;
+  margin-bottom: 10px;
+}
+
+.journal-header p {
+  font-size: 20px;
+  color: #7d5c1f;
+}
+
+/* CONTAINER */
 .journals-container {
-    width: 70%;
-    margin: auto;
-    text-align: center;
-    color:#a38131;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 40px;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 120px;
 }
 
-.journals-title {
-    font-size: 40px;
-    margin-bottom: 25px;
+/* EMPTY STATE */
+.empty {
+  text-align: center;
+  font-size: 20px;
+  color: #8a6b2c;
+  margin-top: 60px;
 }
 
+/* JOURNAL CARD */
 .journal-card {
-    background: #6a0dad;
-    padding: 25px;
-    border-radius: 25px;
-    margin-bottom: 25px;
-    text-align: left;
-    color: #ffd166;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+  background: #fff7e0;
+  padding: 35px 35px 30px;
+  border-radius: 26px;
+  margin-bottom: 35px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
 }
 
+.journal-card:hover {
+  transform: translateY(-6px);
+}
+
+/* TITLE */
 .journal-card h3 {
-    font-size: 28px;
-    margin-bottom: 8px;
+  font-size: 32px;
+  color: #6a3a00;
+  margin-bottom: 8px;
 }
 
-.location, .date {
-    font-size: 16px;
-    color: wheat;
-    margin: 2px 0;
+/* META */
+.meta {
+  font-size: 16px;
+  color: #8a6b2c;
+  margin-bottom: 6px;
 }
 
+/* STORY */
 .desc {
-    font-size: 15px;
-    margin: 12px 0 20px;
-    color: #ffeab6;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 18px 0 20px;
+  color: #4a3a10;
 }
 
+/* AUDIO */
+audio {
+  width: 100%;
+  margin-bottom: 18px;
+  border-radius: 10px;
+}
+
+/* ACTIONS */
 .journal-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  display: flex;
+  gap: 14px;
 }
 
-.open-btn {
-    background: #ffd166;
-    color: #6a0dad;
-    text-decoration: none;
-    padding: 10px 16px;
-    font-weight: bold;
-    border-radius: 12px;
-    transition: 0.3s;
+/* BUTTONS */
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
-.open-btn:hover {
-    transform: scale(1.05);
+/* EDIT */
+.edit-btn {
+  background: #7a1bbd;
+  color: #fff7e0;
 }
 
-/* Voice note upload button */
-.voice-btn {
-    background: #9f4ce1;
-    padding: 10px 16px;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #ffd166;
-    transition: 0.3s;
+.edit-btn:hover {
+  background: #5b0f8b;
+  transform: scale(1.05);
 }
 
-.voice-btn:hover {
-    transform: scale(1.05);
+/* DELETE */
+.delete-btn {
+  background: #7b2727;
+  color: #fff7e0;
 }
 
-/* Hide the actual file input */
-.voice-btn input {
-    display: none;
+.delete-btn:hover {
+  background: #5c1c1c;
+  transform: scale(1.05);
 }

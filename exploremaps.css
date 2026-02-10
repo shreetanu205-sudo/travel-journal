@@ -1,32 +1,43 @@
-html,body{
-    background-color:#fdeabf;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, #fdeabf, #f7d892);
+}
 
+/* HERO */
+.map-hero {
+  text-align: center;
+  padding: 90px 20px 40px;
+}
+
+.map-hero h1 {
+  font-size: 52px;
+  color: #7b2727;
+}
+
+.map-hero p {
+  font-size: 20px;
+  color: #7a5a22;
+  margin-top: 10px;
+}
+
+/* MAP */
 .map-container {
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:#a38131;
-    margin-top: 30px;
-}
-
-.map-title {
-    font-size: 40px;
-    margin-bottom: 5px;
-}
-
-.map-subtitle {
-    font-size: 16px;
-    color:#a38131;
-    margin-bottom: 25px;
+  width: 85%;
+  margin: auto;
+  padding-bottom: 80px;
 }
 
 #travelMap {
-    height: 500px;
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
-    border: 4px solid #6a0dad;
+  height: 520px;
+  border-radius: 25px;
+  border: 4px solid #6a0dad;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
