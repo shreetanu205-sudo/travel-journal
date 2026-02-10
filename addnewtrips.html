@@ -7,37 +7,28 @@
   </head>
   <body>
     <header class="add-header">
-      <h1>✈️ Add New Trip</h1>
-      <p>Write freely. This space is yours.</p>
+      <h1>✈️ Add New Memory</h1>
+      <p>No filters. No rules. Just what you remember.</p>
     </header>
 
     <main class="add-container">
       <div class="add-card">
-        <div class="field">
-          <label>Trip Title</label>
-          <input id="title" placeholder="Give this memory a name" />
-        </div>
+        <label>Memory Title</label>
+        <input id="title" placeholder="Give this memory a name" />
 
-        <div class="field">
-          <label>Location</label>
-          <input id="location" placeholder="Where were you?" />
-        </div>
+        <label>Location</label>
+        <input id="location" placeholder="Where were you?" />
 
-        <div class="field">
-          <label>Date</label>
-          <input type="date" id="date" />
-        </div>
+        <label>Date</label>
+        <input type="date" id="date" />
 
-        <div class="field">
-          <label>Your Story</label>
-          <textarea
-            id="story"
-            rows="10"
-            placeholder="Start anywhere. One sentence is enough to begin."
-          ></textarea>
-        </div>
+        <label>Your Story</label>
+        <textarea id="story" rows="6" placeholder="Write freely…"></textarea>
 
-        <button class="save-btn" onclick="saveTrip()">Save Trip</button>
+        <label>Add Photos (max 10)</label>
+        <input type="file" id="images" accept="image/*" multiple />
+
+        <button onclick="saveTrip()">Save Memory</button>
       </div>
     </main>
 

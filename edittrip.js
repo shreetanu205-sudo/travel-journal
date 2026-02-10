@@ -1,52 +1,88 @@
 const params = new URLSearchParams(window.location.search);
-const index = Number(params.get("id"));
+const index = parseInt(params.get("id"), 10);
 
 const trips = JSON.parse(localStorage.getItem("trips")) || [];
 
-const titleInput = document.getElementById("title");
-const locationInput = document.getElementById("location");
-const dateInput = document.getElementById("date");
-const storyInput = document.getElementById("story");
-
-// HARD STOP if invalid
 if (Number.isNaN(index) || !trips[index]) {
   alert("Memory not found.");
   window.location.href = "Myjournal.html";
 }
 
-// 🔥 READ ACTUAL STORED OBJECT
 const trip = trips[index];
 
-// SUPPORT MULTIPLE KEY NAMES (fixes your issue)
-titleInput.value = trip.title || trip.tripTitle || "";
+const title = document.getElementById("title");
+const locationInput = document.getElementById("location");
+const date = document.getElementById("date");
+const story = document.getElementById("story");
+const existingPhotos = document.getElementById("existingPhotos");
+const newImagesInput = document.getElementById("newImages");
 
-locationInput.value = trip.location || trip.place || "";
+// Prefill
+title.value = trip.title;
+locationInput.value = trip.location;
+date.value = trip.date;
+story.value = trip.story;
 
-dateInput.value = trip.date || trip.travelDate || "";
+let images = [...(trip.images || [])];
 
-storyInput.value = trip.story || trip.description || "";
+// Render existing images
+function renderPhotos() {
+  existingPhotos.innerHTML = "";
+  images.forEach((img, i) => {
+    const div = document.createElement("div");
+    div.className = "photo-item";
+    div.innerHTML = `
+      <img src="${img}">
+      <button class="remove-btn" onclick="removePhoto(${i})">×</button>
+    `;
+    existingPhotos.appendChild(div);
+  });
+}
 
-// UPDATE SAME OBJECT
+renderPhotos();
+
+// Remove image
+function removePhoto(i) {
+  images.splice(i, 1);
+  renderPhotos();
+}
+
+// Update trip
 function updateTrip() {
-  if (
-    !titleInput.value ||
-    !locationInput.value ||
-    !dateInput.value ||
-    !storyInput.value
-  ) {
-    alert("Every memory deserves completeness.");
+  const files = Array.from(newImagesInput.files);
+
+  if (images.length + files.length > 10) {
+    alert("Maximum 10 photos allowed.");
     return;
   }
 
+  if (files.length === 0) {
+    save();
+    return;
+  }
+
+  let loaded = 0;
+  files.forEach((file) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      images.push(e.target.result);
+      loaded++;
+      if (loaded === files.length) save();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function save() {
   trips[index] = {
-    ...trip, // preserve extras
-    title: titleInput.value.trim(),
+    ...trip,
+    title: title.value.trim(),
     location: locationInput.value.trim(),
-    date: dateInput.value,
-    story: storyInput.value.trim(),
+    date: date.value,
+    story: story.value.trim(),
+    images,
   };
 
   localStorage.setItem("trips", JSON.stringify(trips));
-
   window.location.href = "Myjournal.html";
 }

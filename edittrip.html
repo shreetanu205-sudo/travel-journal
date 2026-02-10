@@ -6,38 +6,30 @@
     <link rel="stylesheet" href="edittrip.css" />
   </head>
   <body>
-    <!-- HEADER -->
     <header class="edit-header">
       <h1>✏️ Revisit This Memory</h1>
       <p>You can change the words, not the feeling.</p>
     </header>
 
-    <!-- EDIT CARD -->
     <main class="edit-container">
       <div class="edit-card">
-        <div class="field">
-          <label>Memory Title</label>
-          <input id="title" placeholder="Give it a better name if you want" />
-        </div>
+        <label>Memory Title</label>
+        <input id="title" />
 
-        <div class="field">
-          <label>Location</label>
-          <input id="location" placeholder="Where were you?" />
-        </div>
+        <label>Location</label>
+        <input id="location" />
 
-        <div class="field">
-          <label>Date</label>
-          <input type="date" id="date" />
-        </div>
+        <label>Date</label>
+        <input type="date" id="date" />
 
-        <div class="field">
-          <label>Your Story</label>
-          <textarea
-            id="story"
-            rows="8"
-            placeholder="Add what you remembered later…"
-          ></textarea>
-        </div>
+        <label>Your Story</label>
+        <textarea id="story" rows="6"></textarea>
+
+        <label>Photos in this memory</label>
+        <div id="existingPhotos" class="photo-grid"></div>
+
+        <label>Add more photos (optional)</label>
+        <input type="file" id="newImages" accept="image/*" multiple />
 
         <button class="update-btn" onclick="updateTrip()">Update Memory</button>
       </div>
