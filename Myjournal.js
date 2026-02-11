@@ -1,5 +1,15 @@
 const journalList = document.getElementById("journalList");
-const trips = JSON.parse(localStorage.getItem("trips")) || [];
+
+/* 🔹 FETCH USER */
+let user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (!user) {
+  window.location.href = "login.html";
+}
+
+/* 🔹 INIT TRIPS */
+user.trips = user.trips || [];
+const trips = user.trips;
 
 if (trips.length === 0) {
   journalList.innerHTML = "<p>No memories yet.</p>";
@@ -15,9 +25,9 @@ if (trips.length === 0) {
       <p class="desc">${trip.story.slice(0, 120)}...</p>
 
       <div class="journal-actions">
-        <button class="edit-btn" onclick="editTrip(${index})">✏ Edit</button>
-        <button class="view-btn" onclick="viewTrip(${index})">📖 Open</button>
-        <button class="delete-btn" onclick="deleteTrip(${index})">🗑 Delete</button>
+        <button class="edit-btn" onclick="editTrip(${trip.id})">✏ Edit</button>
+        <button class="view-btn" onclick="viewTrip(${trip.id})">📖 Open</button>
+        <button class="delete-btn" onclick="deleteTrip(${trip.id})">🗑 Delete</button>
       </div>
     `;
 
@@ -25,16 +35,17 @@ if (trips.length === 0) {
   });
 }
 
-function editTrip(index) {
-  window.location.href = "edittrip.html?id=" + index;
+/* 🔹 USE TRIP ID (NOT INDEX) */
+function editTrip(id) {
+  window.location.href = "edittrip.html?id=" + id;
 }
 
-function viewTrip(index) {
-  window.location.href = "viewtrip.html?id=" + index;
+function viewTrip(id) {
+  window.location.href = "viewtrip.html?id=" + id;
 }
 
-function deleteTrip(index) {
-  trips.splice(index, 1);
-  localStorage.setItem("trips", JSON.stringify(trips));
+function deleteTrip(id) {
+  user.trips = user.trips.filter(trip => trip.id !== id);
+  localStorage.setItem("loggedInUser", JSON.stringify(user));
   location.reload();
 }

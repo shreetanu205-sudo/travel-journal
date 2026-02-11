@@ -1,112 +1,179 @@
-html,body{
-     background-color:#fdeabf;
+html, body {
+    margin: 0;
+    background-color: #fdeabf;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
 }
 
+/* Container */
 .profile-container {
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    color:#ffd166;
-    font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
-    margin-top: 40px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Card */
+.profile-card {
+    width: 560px;
+    background: linear-gradient(180deg, #6a0dad, #5a0896);
+    border-radius: 36px;
+    padding: 48px 44px;
+    text-align: center;
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.45),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Title */
 .profile-title {
     font-size: 42px;
-    margin-bottom: 25px;
-    color:#a38131;
+    font-weight: 700;
+    color: #ffd166;
+    margin-bottom: 35px;
+    letter-spacing: 0.8px;
 }
 
-.profile-card {
-    background: #6a0dad;
-    padding: 40px;
-    border-radius: 30px;
-    width: 60%;
-    margin: auto;
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.4);
-}
-
-/* Top Section */
+/* Top */
 .profile-top {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Profile Image */
+.profile-pic-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
 .profile-pic {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 5px solid #ffd166;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
-    margin-bottom: 15px;
+    border: 6px solid #ffd166;
+    object-fit: cover;
+    transition: 0.35s ease;
 }
 
-.profile-name {
-    font-size: 28px;
-    margin-bottom: 5px;
+.profile-pic-wrapper:hover .profile-pic {
+    transform: scale(1.06);
+    filter: brightness(0.85);
 }
 
-.profile-tag {
+.edit-photo {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #ffd166;
+    color: #6a0dad;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+/* Name */
+#fullName {
+    margin-top: 18px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff3cd;
+}
+
+#username {
     font-size: 16px;
-    color: wheat;
-    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: rgba(255,234,182,0.75);
 }
 
-/* Stats Section */
+/* Stats */
 .profile-stats {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 40px 0;
 }
 
 .stat-box {
-    background: #9f4ce1;
-    padding: 18px 25px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    width: 120px;
+    padding: 22px 10px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #9f4ce1, #7c2ec3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
 }
 
 .stat-box h4 {
-    font-size: 32px;
+    font-size: 36px;
+    font-weight: 700;
     margin: 0;
     color: #ffd166;
 }
 
 .stat-box p {
-    margin: 0;
-    font-size: 14px;
-    color: wheat;
+    margin-top: 6px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
 }
 
-/* Info Section */
+/* Info */
 .profile-info {
-    background: #8d36d8;
-    padding: 20px 30px;
-    border-radius: 20px;
-    color: #ffeab6;
+    background: rgba(255,255,255,0.08);
+    border-radius: 22px;
+    padding: 26px 28px;
     text-align: left;
-    margin-bottom: 25px;
-    line-height: 1.6;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 32px;
 }
 
-/* Edit Button */
+.profile-info p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    color: #ffeab6;
+}
+
+.profile-info span {
+    opacity: 0.75;
+    font-size: 14px;
+}
+
+.profile-info strong {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* 🔥 ABOUT LINE – FIXED (NO BOTTOM DROP) */
+.about-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.about-line strong {
+    max-width: 65%;
+    text-align: right;
+    line-height: 1.5;
+}
+
+/* Button */
 .edit-btn {
-    background-color: #ffd166;
-    color: #6a0dad;
+    width: 100%;
+    padding: 16px;
+    font-size: 19px;
+    border-radius: 20px;
     border: none;
-    padding: 12px 22px;
-    font-size: 18px;
-    border-radius: 15px;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd166, #ffbe3b);
+    color: #5a0896;
+    transition: 0.3s ease;
 }
 
 .edit-btn:hover {
-    transform: scale(1.08);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
+
+
+

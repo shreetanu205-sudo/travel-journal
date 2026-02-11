@@ -15,9 +15,19 @@ function saveTrip() {
     return;
   }
 
-  const trips = JSON.parse(localStorage.getItem("trips")) || [];
-  const images = [];
+  /* 🔹 FETCH USER */
+  let user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (!user) {
+    alert("User not logged in");
+    return;
+  }
 
+  /* 🔹 INIT ARRAYS */
+  user.trips = user.trips || [];
+  user.countries = user.countries || [];
+  user.voiceNotes = user.voiceNotes || [];
+
+  const images = [];
   const files = Array.from(imageInput.files);
   let loaded = 0;
 
@@ -39,15 +49,25 @@ function saveTrip() {
   });
 
   function finalize(images) {
-    trips.push({
+    const trip = {
+      id: Date.now(),
       title,
       location,
       date,
       story,
-      images,
-    });
+      images
+    };
 
-    localStorage.setItem("trips", JSON.stringify(trips));
+    /* 🔹 SAVE TRIP */
+    user.trips.push(trip);
+
+    /* 🔹 AUTO-ADD COUNTRY (no duplicates) */
+    if (!user.countries.includes(location)) {
+      user.countries.push(location);
+    }
+
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+
     window.location.href = "Myjournal.html";
   }
 }

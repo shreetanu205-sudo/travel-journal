@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Your Profile</title>
@@ -8,35 +8,54 @@
 <body>
 
 <div class="profile-container">
-<h2 class="profile-title">👤 Your Profile</h2>
+  <div class="profile-card">
 
-<div class="profile-card">
+    <h2 class="profile-title">Your Profile</h2>
 
-  <div class="profile-top">
-    <img src="profile.avif" class="profile-pic">
-    <h3 id="fullName"></h3>
-    <p id="username"></p>
+    <div class="profile-top">
+      <label for="profileImageInput" class="profile-pic-wrapper">
+        <img src="profile.avif" class="profile-pic" id="profilePic">
+        <span class="edit-photo">Change</span>
+      </label>
+
+      <input type="file" id="profileImageInput" accept="image/*" hidden>
+
+      <h3 id="fullName"></h3>
+      <p id="username"></p>
+    </div>
+
+    <div class="profile-stats">
+      <div class="stat-box">
+        <h4 id="tripCount">0</h4>
+        <p>Trips</p>
+      </div>
+      <div class="stat-box">
+        <h4 id="countryCount">0</h4>
+        <p>Cities</p>
+      </div>
+      <div class="stat-box">
+        <h4 id="voiceCount">0</h4>
+        <p>Voice Notes</p>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <p><span>Login ID</span><strong id="loginId"></strong></p>
+      <p><span>Member Since</span><strong>2024</strong></p>
+      <p class="about-line">
+        <span>About</span>
+        <strong id="about"></strong>
+      </p>
+    </div>
+
+    <a href="editprofile.html">
+      <button class="edit-btn">Edit Profile</button>
+    </a>
+
   </div>
-
-  <div class="profile-stats">
-    <div class="stat-box"><h4>0</h4><p>Trips</p></div>
-    <div class="stat-box"><h4>0</h4><p>Countries</p></div>
-    <div class="stat-box"><h4>0</h4><p>Voice Notes</p></div>
-  </div>
-
-  <div class="profile-info">
-    <p><b>Login ID:</b> <span id="loginId"></span></p>
-    <p><b>Member Since:</b> 2024</p>
-    <p><b>About:</b> <span id="about"></span></p>
-  </div>
-
-  <a href="editprofile.html">
-    <button class="edit-btn">Edit Profile</button>
-  </a>
-
-</div>
 </div>
 
 <script src="profilepage.js"></script>
 </body>
 </html>
+
